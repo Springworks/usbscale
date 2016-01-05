@@ -307,7 +307,7 @@ static int print_scale_data(unsigned char* dat) {
             return -1;
         case 0x02:
             if(status != lastStatus)
-                fprintf(stderr, "Scale is zero'd...\n");
+                printf("%g %s\n", 0, UNITS[unit]);
             break;
         case 0x03:
             if(status != lastStatus)
