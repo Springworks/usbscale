@@ -306,9 +306,9 @@ static int print_scale_data(unsigned char* dat) {
             fprintf(stderr, "Scale reports Fault\n");
             return -1;
         case 0x02:
-            if(status != lastStatus)
-                fprintf(stderr, "Scale is zero'd...\n");
-            break;
+            // Handle "zero value" as any other measurement
+            printf("%g %s\n", 0, UNITS[unit]);
+            return 0;
         case 0x03:
             if(status != lastStatus)
                 fprintf(stderr, "Weighing...\n");
