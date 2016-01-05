@@ -306,8 +306,8 @@ static int print_scale_data(unsigned char* dat) {
             fprintf(stderr, "Scale reports Fault\n");
             return -1;
         case 0x02:
-            // Handle "zero value" as any other measurement
-            printf("%g %s\n", 0, UNITS[unit]);
+            // Always print "0" (without unit) if there is no measurement
+            printf("0\n");
             return 0;
         case 0x03:
             if(status != lastStatus)
